@@ -1,6 +1,6 @@
 import SkillCard from "./SkillCard";
 
-function Skills({}: Props) {
+function Skills() {
   const skills = [
     {
       id: 1,

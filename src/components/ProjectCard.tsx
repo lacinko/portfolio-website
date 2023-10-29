@@ -9,7 +9,7 @@ type ProjectCardProps = {
   }[];
   description: string;
   github_url: string;
-  url: string;
+  url: string | null;
 };
 
 function ProjectCard({
