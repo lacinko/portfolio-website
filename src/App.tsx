@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Section from "./components/Section";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Skills = lazy(() => import("./components/Skills"));
 const JobCardList = lazy(() => import("./components/Jobs"));
 const Projects = lazy(() => import("./components/Projects"));
@@ -46,11 +48,12 @@ function App() {
 
   return (
     <div className="grid place-items-center bg-slate-900">
+      <ToastContainer />
       <Header />
       <main className="container bg-slate-900 py-20 font-mono text-white">
         <Hero />
         {sections.map((section) => (
-          <Section heading={section.heading} id={section.id}>
+          <Section heading={section.heading} id={section.id} key={section.id}>
             {section.component}
           </Section>
         ))}

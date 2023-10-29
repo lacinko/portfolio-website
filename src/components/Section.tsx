@@ -10,7 +10,7 @@ type SectionProps = {
 };
 
 function Section({ children, heading, id }: SectionProps) {
-  function logErrorToService(error, info) {
+  function logErrorToService(error: Error, info: React.ErrorInfo) {
     console.error("Caught an error:", error, info);
   }
 

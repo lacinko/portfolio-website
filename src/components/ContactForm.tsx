@@ -2,6 +2,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { TypeOf, object, string } from "zod";
 import { cn } from "../utils/utils";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 const contactFormSchema = object({
   name: string()
@@ -39,6 +41,7 @@ function ContactForm() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<TContactForm>({
     defaultValues,
     resolver: zodResolver(contactFormSchema),
@@ -48,7 +51,27 @@ function ContactForm() {
     values: TContactForm,
   ) => {
     try {
-      console.log(values);
+      const response = await emailjs.send(
+        "service_hr1uose",
+        "template_smo69ao",
+        values,
+        "tYWLXwrhQLgt56VO4",
+      );
+
+      if (response.status === 200) {
+        reset(defaultValues);
+        toast.success("Thanks for the email", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          theme: "dark",
+          className: "bg-slate-800 text-slate-300 font-mono",
+        });
+      } else {
+        toast.error("Ouch, something went wrong", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          theme: "dark",
+          className: "bg-slate-800 text-slate-300 font-mono",
+        });
+      }
     } catch (error) {
       console.log(error);
     }
