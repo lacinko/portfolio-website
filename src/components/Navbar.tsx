@@ -1,47 +1,24 @@
-function Navbar() {
+type NavbarProps = {
+  links: {
+    name: string;
+    url: string;
+  }[];
+};
+
+function Navbar({ links }: NavbarProps) {
   return (
-    <nav className="w-full">
-      <ul className="flex w-full justify-between py-3 font-mono">
-        <li>
-          <a
-            href="#about-me"
-            className="decoration-blue-500 decoration-2 hover:underline hover:underline-offset-2 "
-          >
-            About
-          </a>
-        </li>
-        <li>
-          <a
-            href="#experience"
-            className="decoration-blue-500 decoration-2 hover:underline hover:underline-offset-2 "
-          >
-            Experience
-          </a>
-        </li>
-        <li>
-          <a
-            href="#skills"
-            className="decoration-blue-500 decoration-2 hover:underline hover:underline-offset-2 "
-          >
-            Skills
-          </a>
-        </li>
-        <li>
-          <a
-            href="#projects"
-            className="decoration-blue-500 decoration-2 hover:underline hover:underline-offset-2 "
-          >
-            Projects
-          </a>
-        </li>
-        <li>
-          <a
-            href="#education"
-            className="decoration-blue-500 decoration-2 hover:underline hover:underline-offset-2 "
-          >
-            Education
-          </a>
-        </li>
+    <nav className="flex w-full items-center max-md:hidden">
+      <ul className="flex w-full justify-between font-mono">
+        {links.map((link) => (
+          <li key={link.name}>
+            <a
+              href={link.url}
+              className="decoration-blue-500 decoration-2 hover:underline hover:underline-offset-2 "
+            >
+              {link.name}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   );

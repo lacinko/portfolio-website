@@ -35,37 +35,31 @@ function Education() {
   ];
   return (
     <>
-      <h2 className="text-xl font-semibold text-indigo-500">
-        &lt;Education&gt;
-      </h2>
       {education.map((item, idx) => {
         return (
-          <div>
+          <div key={item.link}>
             {idx === 0 || idx === 2 ? (
-              <h3 className="pb-2 pt-4 text-lg font-bold text-blue-500">
+              <h3 className="pb-2 text-lg font-bold text-blue-500">
                 {item.type === "school" ? "School" : "Certifications"}
                 <br />
               </h3>
             ) : null}
             <div className="my-6 mt-0 bg-slate-800 p-5">
               <header className="flex items-start justify-between">
-                <h3 className="text-lg font-semibold ">{item.title}</h3>
+                <h3 className="font-semibold md:text-lg ">{item.title}</h3>
                 {item.link && (
                   <a href={item.link}>
                     <Icon icon="link" className="h-6 w-6" />
                   </a>
                 )}
               </header>
-              <main className="py-2 text-slate-300">
+              <main className="py-2 text-sm  text-slate-300 md:text-base">
                 <p>{item.description}</p>
               </main>
             </div>
           </div>
         );
       })}
-      <h2 className="text-xl font-semibold text-indigo-500">
-        &lt;/Education&gt;
-      </h2>
     </>
   );
 }

@@ -23,7 +23,7 @@ function ProjectCard({
     <div className="my-6 bg-slate-800 p-5 first:mt-0 last:mb-0">
       <header className="flex items-start justify-between">
         <div className="text-blue-500">
-          <h3 className="text-lg font-semibold ">{name}</h3>
+          <h3 className="pb-1 pr-2 font-semibold md:text-lg">{name}</h3>
           <div>
             {tags.map((tag) => (
               <span
@@ -39,15 +39,17 @@ function ProjectCard({
           </div>
         </div>
         <div className="flex gap-2">
-          <a href={url}>
-            <Icon icon="link" className="h-6 w-6" />
-          </a>
+          {url ? (
+            <a href={url}>
+              <Icon icon="link" className="h-6 w-6" />
+            </a>
+          ) : null}
           <a href={github_url}>
             <Icon icon="github" className="h-6 w-6" fill="white" />
           </a>
         </div>
       </header>
-      <main className="py-4">
+      <main className="py-4 text-sm md:text-base">
         <p>{description}</p>
       </main>
     </div>

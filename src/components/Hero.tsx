@@ -1,3 +1,5 @@
+import CV from "../assets/Topolsky-Ladislav-CV.pdf";
+
 function Hero() {
   return (
     <div>
@@ -11,9 +13,15 @@ function Hero() {
             <span>Software Engineer</span>
           </h1>
           <div className="flex flex-col gap-2 pt-4 md:flex-row">
-            <button className="rounded-md border-2 border-blue-500 px-2 py-1 text-center hover:bg-blue-500">
+            <a
+              href={CV}
+              download="Topolsky_Ladislav_CV"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md border-2 border-blue-500 px-2 py-1 text-center hover:bg-blue-500"
+            >
               Download CV
-            </button>
+            </a>
             <a
               href="#contact"
               className="rounded-md border-2 border-indigo-500 px-2 py-1 text-center hover:bg-indigo-500"
