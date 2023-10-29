@@ -47,12 +47,12 @@ function About() {
         <h3>
           <span className="font-semibold">Languages:</span>
         </h3>
-        <ul className="flex justify-between gap-2 text-sm text-slate-300 md:text-base">
+        <ul className="flex gap-2 text-sm text-slate-300 md:text-base">
           <li>
-            English <span>C1</span>
+            English <span>C1</span>,
           </li>
           <li>
-            Czech <span>Native</span>
+            Czech <span>Native</span>,
           </li>
           <li>
             Slovak <span>Native</span>

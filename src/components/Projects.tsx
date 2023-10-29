@@ -36,7 +36,7 @@ function Projects({}: Props) {
       name: "Portfolio Website",
       tags: [{ title: "new", color: "bg-green-500" }],
       description: "Portfolio website built with React, TypeScript, Tailwind",
-      github_url: "https://github.com/lacinko/personal-website",
+      github_url: "https://github.com/lacinko/portfolio-website",
       url: null,
     },
     {

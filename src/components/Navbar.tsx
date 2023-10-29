@@ -8,7 +8,7 @@ type NavbarProps = {
 function Navbar({ links }: NavbarProps) {
   return (
     <nav className="flex w-full items-center max-md:hidden">
-      <ul className="flex w-full justify-between font-mono">
+      <ul className="flex w-full gap-10 font-mono">
         {links.map((link) => (
           <li key={link.name}>
             <a

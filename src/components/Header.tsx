@@ -32,6 +32,7 @@ function Header() {
     <>
       <header className="item-center container fixed top-0 z-20 flex w-full justify-between bg-slate-800  px-4 py-3  font-mono text-white">
         <Navbar links={links} />
+        <p>topolsky.eu</p>
         <div className="flex w-full items-center justify-end md:hidden">
           <button
             className="inline-flex flex-col gap-1"

@@ -4,6 +4,8 @@ import { TypeOf, object, string } from "zod";
 import { cn } from "../utils/utils";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
+import { Icon } from "./Icons";
+import { useEffect } from "react";
 
 const contactFormSchema = object({
   name: string()
@@ -40,7 +42,7 @@ function ContactForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
     reset,
   } = useForm<TContactForm>({
     defaultValues,
@@ -51,27 +53,26 @@ function ContactForm() {
     values: TContactForm,
   ) => {
     try {
-      const response = await emailjs.send(
+      const sendEmail = emailjs.send(
         "service_hr1uose",
         "template_smo69ao",
         values,
         "tYWLXwrhQLgt56VO4",
       );
 
-      if (response.status === 200) {
-        reset(defaultValues);
-        toast.success("Thanks for the email", {
+      await toast.promise(
+        sendEmail,
+        {
+          pending: "Sending email...",
+          success: "Email sent",
+          error: "Ouch, something went wrong",
+        },
+        {
           position: toast.POSITION.BOTTOM_RIGHT,
           theme: "dark",
           className: "bg-slate-800 text-slate-300 font-mono",
-        });
-      } else {
-        toast.error("Ouch, something went wrong", {
-          position: toast.POSITION.BOTTOM_RIGHT,
-          theme: "dark",
-          className: "bg-slate-800 text-slate-300 font-mono",
-        });
-      }
+        },
+      );
     } catch (error) {
       console.log(error);
     }
@@ -113,6 +114,12 @@ function ContactForm() {
       placeholder: "Message",
     },
   ];
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset(defaultValues);
+    }
+  }, [isSubmitSuccessful]);
 
   return (
     <form
@@ -177,10 +184,17 @@ function ContactForm() {
 
       <div className="mt-3 flex w-full md:justify-end">
         <button
+          disabled={isSubmitting}
           type="submit"
-          className="w-full rounded-md border-2 border-indigo-500 px-2 py-1 text-center hover:bg-indigo-500 md:w-1/3"
+          className="dis w-full rounded-md border-2 border-indigo-500 px-2 py-1 text-center hover:bg-indigo-500 md:w-1/3"
         >
-          Send
+          {isSubmitting ? (
+            <Icon
+              icon="spinner"
+              className="mr-3 inline h-4 w-4 animate-spin text-white"
+            />
+          ) : null}
+          {isSubmitting ? "Sending..." : "Send"}
         </button>
       </div>
     </form>
