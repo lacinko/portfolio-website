@@ -31,13 +31,18 @@ const contactFormSchema = object({
 
 type TContactForm = TypeOf<typeof contactFormSchema>;
 
+import { useMemo } from "react";
+
 function ContactForm() {
-  const defaultValues: TContactForm = {
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  };
+  const defaultValues = useMemo<TContactForm>(
+    () => ({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    }),
+    [],
+  );
 
   const {
     register,
@@ -119,7 +124,7 @@ function ContactForm() {
     if (isSubmitSuccessful) {
       reset(defaultValues);
     }
-  }, [isSubmitSuccessful]);
+  }, [isSubmitSuccessful, reset, defaultValues]);
 
   return (
     <form
