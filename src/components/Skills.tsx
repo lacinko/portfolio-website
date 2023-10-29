@@ -134,7 +134,7 @@ function Skills() {
         <h3 className="pb-2 pt-4 text-lg font-bold text-blue-500">
           Technologies I worked with
         </h3>
-        <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        <ul className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
           {skills.map((skill) => (
             <li key={skill.id}>
               <SkillCard

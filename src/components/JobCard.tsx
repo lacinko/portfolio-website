@@ -19,7 +19,7 @@ function JobCard({
   skills,
 }: JobCardProps) {
   return (
-    <article className="my-6 bg-slate-800 p-5 first:mt-0 last:mb-0">
+    <article className="bg-slate-800 p-5">
       <header className="flex justify-between gap-4 max-sm:flex-col">
         <div>
           <h3 className="font-semibold md:text-lg ">{jobTitle}</h3>

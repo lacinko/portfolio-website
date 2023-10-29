@@ -67,7 +67,7 @@ function Projects({}: Props) {
     },
   ];
   return (
-    <div>
+    <div className="flex flex-col gap-3">
       {projects.map((project) => (
         <ProjectCard key={project.id} {...project} />
       ))}

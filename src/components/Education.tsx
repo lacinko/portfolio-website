@@ -34,7 +34,7 @@ function Education() {
     },
   ];
   return (
-    <>
+    <div className="flex flex-col gap-3">
       {education.map((item, idx) => {
         return (
           <div key={item.link}>
@@ -44,7 +44,7 @@ function Education() {
                 <br />
               </h3>
             ) : null}
-            <div className="my-6 mt-0 bg-slate-800 p-5">
+            <div className="bg-slate-800 p-5 ">
               <header className="flex items-start justify-between">
                 <h3 className="font-semibold md:text-lg ">{item.title}</h3>
                 {item.link && (
@@ -60,7 +60,7 @@ function Education() {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 

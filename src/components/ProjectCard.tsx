@@ -20,7 +20,7 @@ function ProjectCard({
   url,
 }: ProjectCardProps) {
   return (
-    <div className="my-6 bg-slate-800 p-5 first:mt-0 last:mb-0">
+    <div className="bg-slate-800 p-5">
       <header className="flex items-start justify-between">
         <div className="text-blue-500">
           <h3 className="pb-1 pr-2 font-semibold md:text-lg">{name}</h3>

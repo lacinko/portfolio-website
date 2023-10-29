@@ -7,7 +7,7 @@ function Hero() {
         <div className="flex flex-col">
           <h1 className="inline-flex flex-col">
             Hi, I am{" "}
-            <span className="animate-bounce text-xl font-medium">
+            <span className="animate-bounce  pt-4 text-xl font-medium min-[415px]:pt-2">
               Ladislav Topolsky
             </span>
             <span>Software Engineer</span>

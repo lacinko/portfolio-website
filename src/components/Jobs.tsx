@@ -76,7 +76,7 @@ function Jobs() {
   ];
 
   return (
-    <div>
+    <div className="flex flex-col gap-3">
       {jobRoles.map((jobRole) => (
         <JobCard key={jobRole.id} {...jobRole} />
       ))}
