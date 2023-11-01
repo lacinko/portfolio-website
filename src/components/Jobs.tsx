@@ -1,10 +1,28 @@
+import { useQuery } from "@tanstack/react-query";
 import JobCard from "./JobCard";
+import { getAllJobRoles } from "../api/api";
+import { convertUrlParamsIntoURLString } from "../utils/utils";
 
 function Jobs() {
-  const todayDate = new Date();
-  const currentMonth = todayDate.toLocaleString("default", { month: "long" });
-  const currentYear = todayDate.getFullYear();
-  const jobRoles = [
+  // Define an object to represent the parameters
+  const rolesQueryParams = {
+    include: {
+      skills: true,
+      company: true,
+    },
+    orderBy: {
+      startDate: "desc",
+    },
+  };
+
+  // Convert the object to a URL-encoded query string
+  const rolesQueryString = convertUrlParamsIntoURLString(rolesQueryParams);
+  const { data: jobRoles } = useQuery({
+    queryKey: ["roles", rolesQueryString],
+    queryFn: () => getAllJobRoles(rolesQueryString),
+  });
+
+  /*const jobRoles = [
     {
       id: 1,
       jobTitle: "IT Solution Lead",
@@ -74,12 +92,12 @@ function Jobs() {
       skills: ["Sass", "JavaScript", "CSS", "jQuery", "HTML5", "Git"],
     },
   ];
+  */
 
   return (
     <div className="flex flex-col gap-3">
-      {jobRoles.map((jobRole) => (
-        <JobCard key={jobRole.id} {...jobRole} />
-      ))}
+      {jobRoles &&
+        jobRoles.map((jobRole) => <JobCard key={jobRole.id} {...jobRole} />)}
     </div>
   );
 }
