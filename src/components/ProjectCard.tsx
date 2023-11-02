@@ -1,24 +1,8 @@
+import { Project } from "../types/types";
 import { cn } from "../utils/utils";
 import { Icon } from "./Icons";
 
-type ProjectCardProps = {
-  name: string;
-  tags: {
-    title: string;
-    color: string;
-  }[];
-  description: string;
-  github_url: string;
-  url: string | null;
-};
-
-function ProjectCard({
-  name,
-  tags,
-  description,
-  github_url,
-  url,
-}: ProjectCardProps) {
+function ProjectCard({ name, tags, description, githubUrl, url }: Project) {
   return (
     <div className="bg-slate-800 p-5">
       <header className="flex items-start justify-between">
@@ -27,13 +11,13 @@ function ProjectCard({
           <div>
             {tags.map((tag) => (
               <span
-                key={tag.title}
+                key={tag.id}
                 className={cn(
                   tag.color,
                   "mr-2 rounded-md px-2 py-1 text-sm font-medium uppercase text-black",
                 )}
               >
-                {tag.title}
+                {tag.name}
               </span>
             ))}
           </div>
@@ -44,7 +28,7 @@ function ProjectCard({
               <Icon icon="link" className="h-6 w-6" />
             </a>
           ) : null}
-          <a href={github_url}>
+          <a href={githubUrl}>
             <Icon icon="github" className="h-6 w-6" fill="white" />
           </a>
         </div>

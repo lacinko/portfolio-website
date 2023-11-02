@@ -1,9 +1,27 @@
+import { useQuery } from "@tanstack/react-query";
+import { convertUrlParamsIntoURLString } from "../utils/utils";
 import ProjectCard from "./ProjectCard";
+import { getAllProjects } from "../api/api";
 
-type Props = {};
+function Projects() {
+  // Define an object to represent the parameters
+  const projectsQueryParams = {
+    include: {
+      tags: true,
+    },
+  };
 
-function Projects({}: Props) {
-  const projects = [
+  // Convert the object to a URL-encoded query string
+  const projectsQueryString =
+    convertUrlParamsIntoURLString(projectsQueryParams);
+  const { data: projects } = useQuery({
+    queryKey: ["projects", projectsQueryString],
+    queryFn: () => getAllProjects(projectsQueryString),
+  });
+
+  console.log(projects);
+
+  const oldProjects = [
     {
       id: 1,
       name: "Social Media App Frontend",
@@ -35,7 +53,8 @@ function Projects({}: Props) {
       id: 4,
       name: "Portfolio Website",
       tags: [{ title: "new", color: "bg-green-500" }],
-      description: "Portfolio website built with React, TypeScript, Tailwind",
+      description:
+        "Portfolio website built with React, TypeScript, Tailwind and React Query.",
       github_url: "https://github.com/lacinko/portfolio-website",
       url: null,
     },
@@ -68,9 +87,11 @@ function Projects({}: Props) {
   ];
   return (
     <div className="flex flex-col gap-3">
-      {projects.map((project) => (
-        <ProjectCard key={project.id} {...project} />
-      ))}
+      {projects
+        ? projects.map((project) => (
+            <ProjectCard key={project.id} {...project} />
+          ))
+        : null}
     </div>
   );
 }

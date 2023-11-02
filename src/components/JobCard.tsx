@@ -1,7 +1,7 @@
 import { Role } from "../types/types";
 import { formatDateToMonthYear } from "../utils/utils";
 
-type RoleWithDateEndDate = Role & {
+type JobCardProps = Role & {
   endDate: Date;
 };
 
@@ -13,7 +13,7 @@ function JobCard({
   location,
   description,
   skills,
-}: RoleWithDateEndDate) {
+}: JobCardProps) {
   return (
     <article className="bg-slate-800 p-5">
       <header className="flex justify-between gap-4 max-sm:flex-col">

@@ -1,14 +1,12 @@
+import { useQuery } from "@tanstack/react-query";
+import { getAllSoftSkills } from "../api/api";
+
 function About() {
-  const softSkills = [
-    "Creative spirit",
-    "Reliable",
-    "Professional",
-    "Organized",
-    "Time management",
-    "Team player",
-    "Fast learner",
-    "Motivated",
-  ];
+  // Convert the object to a URL-encoded query string
+  const { data: softSkills } = useQuery({
+    queryKey: ["soft_skills"],
+    queryFn: () => getAllSoftSkills(),
+  });
 
   const aboutMe = [
     "Seasoned IT professional with a diverse background in web development and software engineering.",
@@ -29,11 +27,13 @@ function About() {
           <span className="font-semibold">Soft skills:</span>
         </h3>
         <ul className="grid grid-cols-2 text-sm md:text-base">
-          {softSkills.map((skill) => (
-            <li key={skill} className="text-slate-300">
-              {skill}
-            </li>
-          ))}
+          {softSkills
+            ? softSkills.map((skill) => (
+                <li key={skill.id} className="text-slate-300">
+                  {skill.name}
+                </li>
+              ))
+            : null}
         </ul>
       </div>
       <ul className="flex list-inside list-disc flex-col gap-3 bg-slate-800 p-5 text-sm md:text-base">
