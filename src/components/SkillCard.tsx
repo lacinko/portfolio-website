@@ -1,7 +1,7 @@
 import { Skill } from "../types/types";
 import { Icon } from "./Icons";
 
-type SkillCardProps = Omit<Skill, "id" | "createdAt" | "updatedAt"> & {
+type SkillCardProps = Omit<Skill, "id" | "createdAt" | "updatedAt" | "type"> & {
   className: string;
   fill: string;
 };
