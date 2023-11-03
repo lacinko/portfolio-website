@@ -1,5 +1,3 @@
-import CV from "../assets/Topolsky-Ladislav-CV.pdf";
-
 function Hero() {
   return (
     <div>
@@ -14,7 +12,7 @@ function Hero() {
           </h1>
           <div className="flex flex-col gap-2 pt-4 md:flex-row">
             <a
-              href={CV}
+              href="Topolsky-Ladislav-CV.pdf"
               download="Topolsky_Ladislav_CV"
               target="_blank"
               rel="noreferrer"
