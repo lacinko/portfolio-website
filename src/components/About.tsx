@@ -9,13 +9,16 @@ function About() {
   });
 
   const aboutMe = [
-    "Seasoned IT professional with a diverse background in web development and software engineering.",
+    "Full-time IT professional, part-time student. Currently living in Prague, Czech Republic.",
+    "Finishing my masters's degree in Informatics at the University of Life Sciences in Prague.",
+    "Passionate about web development and software engineering. Daily learning and improving skills.",
+    "Intrested in new technologies and trends in the IT industry. Regularly attending conferences and meetups.",
     "HTML/CSS Developer at AnFas, specializing in web design and collaborating with designers.",
-    "Experienced with version control and teamwork, contributing to projects on GitLab.",
+    "Experienced with version control and teamwork, contributing to projects on GitLab and Github.",
     "Frontend Developer at Blue Lemons, specializing in React and TypeScript for user-centric interfaces.",
     "Proficient in Tailwind CSS to create responsive applications with clean code.",
     "Software Engineer at SwiftShift, excelling in React and TypeScript and contributing to backend development using Node.js, Express, and Prisma.",
-    "Spearheaded the creation of a microservice to streamline communication processes.",
+    "Responsible for the creation of a microservice to streamline communication processes using third party FAX API.",
     "Currently, an IT Solution Lead at The Adecco Group, focusing on cutting-edge solutions using the Microsoft Power Platform.",
     "Passion for optimizing business processes, increasing efficiency, and driving productivity.",
     "Dedicated to bridging the gap between technology and success, thriving on challenges, and eager to contribute skills and experience to projects.",

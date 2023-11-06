@@ -36,7 +36,12 @@ function Education() {
                 ) : null}
                 <div className="bg-slate-800 p-5 ">
                   <header className="flex items-start justify-between">
-                    <h3 className="font-semibold md:text-lg ">{item.title}</h3>
+                    <span>
+                      <h3 className="font-semibold md:text-lg ">
+                        {item.title}
+                      </h3>
+                      {!item.endDate ? <p>Not quite...</p> : null}
+                    </span>
                     {item.certificate && (
                       <a href={item.certificate}>
                         <Icon icon="link" className="h-6 w-6" />
